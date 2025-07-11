@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Prijave</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .paid-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .paid-button:disabled {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container admin-container">
+        <header>
+            <h1>Admin pregled prijav</h1>
+        </header>
+        <main>
+            <button id="exportCsv">Izvozi v CSV</button>
+            <table id="registrationsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ime ekipe</th>
+                        <th>Kapetan</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Št. igralcev</th>
+                        <th>Referenca</th>
+                        <th>Plačano</th>
+                        <th>Datum prijave</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

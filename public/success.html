@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijava Uspešna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prijava uspešna!</h1>
+            <p>Vaša ekipa je bila uspešno prijavljena na turnir.</p>
+        </header>
+        <main>
+            <div class="payment-instructions card">
+                <h2>Navodila za plačilo</h2>
+                <p>Za dokončno potrditev prijave je potrebno poravnati prijavnino v višini <strong>30€</strong>.</p>
+                <p>Podatki za plačilo preko Flik:</p>
+                <ul>
+                    <li><strong>Prejemnik:</strong> Janez Novak</li>
+                    <li><strong>Telefonska številka:</strong> 040 123 456</li>
+                    <li><strong>Referenca za plačilo:</strong> <span id="paymentReference"></span></li>
+                </ul>
+                <p class="important-note">Po prejetem plačilu vam bomo na vaš e-poštni naslov poslali potrditev prijave.</p>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paymentReference = urlParams.get('ref');
+            if (paymentReference) {
+                document.getElementById('paymentReference').textContent = paymentReference;
+            }
+        });
+    </script>
+</body>
+</html>

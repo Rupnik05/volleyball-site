@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijava na Odbojkarski Turnir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prijava na Odbojkarski Turnir 🏐</h1>
+            <p>Prosimo, izpolnite spodnji obrazec za prijavo vaše ekipe.</p>
+            <p><strong>Datum:</strong> 15.8.2025<br><strong>Lokacija:</strong> Športni park Budanje, Igrišče za odbojko na mivki</p>
+            <p><strong>Opomba:</strong> Ekipe so sestavljene iz 3 igralcev.</p>
+        </header>
+        <main>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="team_name">Ime ekipe</label>
+                    <input type="text" id="team_name" name="team_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="captain_name">Ime in priimek kapetana</label>
+                    <input type="text" id="captain_name" name="captain_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="captain_email">Email kapetana</label>
+                    <input type="email" id="captain_email" name="captain_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="captain_phone">Telefon kapetana</label>
+                    <input type="tel" id="captain_phone" name="captain_phone" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" title="Vnesite telefonsko številko v formatu: 040 123 456">
+                </div>
+                <input type="hidden" id="players_count" name="players_count" value="3">
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="rules" name="rules" required>
+                    <label for="rules">Strinjam se s <a href="/pravila.html" target="_blank">pravili turnirja</a>.</label>
+                </div>
+                <button type="submit">Prijavi ekipo</button>
+            </form>
+            <div id="formMessage" class="hidden"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
