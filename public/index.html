@@ -12,33 +12,71 @@
             <h1>Prijava na Odbojkarski Turnir 🏐</h1>
             <p>Prosimo, izpolnite spodnji obrazec za prijavo vaše ekipe.</p>
             <p><strong>Datum:</strong> 15.8.2025<br><strong>Lokacija:</strong> Športni park Budanje, Igrišče za odbojko na mivki</p>
-            <p><strong>Opomba:</strong> Ekipe so sestavljene iz 3 igralcev.</p>
+            <p><strong>Prijavnina:</strong> 30€ na ekipo.</p>
         </header>
         <main>
-            <form action="https://formspree.io/f/mblynnep" method="POST">
-              <input type="hidden" name="_next" value="success.html">
+            <div id="form-container">
+                <form id="registration-form" action="https://formspree.io/f/mblynnep" method="POST">
+                    <label for="team-name">Ime ekipe</label>
+                    <input id="team-name" type="text" name="Ime ekipe" required>
 
-              <label for="team-name">Ime ekipe</label>
-              <input id="team-name" type="text" name="Ime ekipe" required>
+                    <label for="captain-name">Ime in priimek kapetana</label>
+                    <input id="captain-name" type="text" name="Ime in priimek kapetana" required>
 
-              <label for="captain-name">Ime in priimek kapetana</label>
-              <input id="captain-name" type="text" name="Ime in priimek kapetana" required>
+                    <label for="email">Email kapetana</label>
+                    <input id="email" type="email" name="Email kapetana" required>
 
-              <label for="email">Email kapetana</label>
-              <input id="email" type="email" name="Email kapetana" required>
+                    <label for="phone">Telefon kapetana</label>
+                    <input id="phone" type="tel" name="Telefon kapetana">
 
-              <label for="phone">Telefon kapetana</label>
-              <input id="phone" type="tel" name="Telefon kapetana">
-
-              <label>
-                <input type="checkbox" name="Strinjanje s pravili" value="soglašam" required>
-                Strinjam se s pravili turnirja.
-              </label>
-              
-              <button type="submit">Prijavi ekipo</button>
-
-            </form>
+                    <label>
+                        <input type="checkbox" name="Strinjanje s pravili" value="soglašam" required>
+                        Strinjam se s pravili turnirja.
+                    </label>
+                    
+                    <button type="submit">Prijavi ekipo</button>
+                </form>
+            </div>
+            <div id="success-message" class="hidden">
+                <h2>Hvala za prijavo! ✅</h2>
+                <p>Vaša prijava je bila uspešno oddana.</p>
+                <p>V kratkem boste na vnešeni e-mail naslov prejeli vse potrebne informacije in navodila za plačilo prijavnine.</p>
+                <p>Se vidimo na igrišču!</p>
+            </div>
         </main>
     </div>
+    <script>
+        var form = document.getElementById('registration-form');
+        var formContainer = document.getElementById('form-container');
+        var successMessage = document.getElementById('success-message');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    formContainer.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! Prišlo je do napake pri pošiljanju obrazca.");
+                        }
+                    })
+                }
+            }).catch(error => {
+                alert("Oops! Prišlo je do napake pri pošiljanju obrazca.");
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
 </body>
 </html>
