@@ -7,44 +7,66 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Prijava na Odbojkarski Turnir 🏐</h1>
-            <p>Prosimo, izpolnite spodnji obrazec za prijavo vaše ekipe.</p>
-            <p><strong>Datum:</strong> 15.8.2025<br><strong>Lokacija:</strong> Športni park Budanje, Igrišče za odbojko na mivki</p>
-            <p><strong>Prijavnina:</strong> 30€ na ekipo.</p>
-        </header>
-        <main>
-            <div id="form-container">
-                <form id="registration-form" action="https://formspree.io/f/mblynnep" method="POST">
+    <!-- Hero section summarising the event -->
+    <header class="hero">
+        <div class="hero__content">
+            <h1>Prijava na Odbojkarski Turnir</h1>
+            <p class="hero__subtitle">
+                Turnir poteka 15.&nbsp;avgusta&nbsp;2025 v Športnem parku Budanje na igrišču za odbojko na mivki.
+            </p>
+            <p class="hero__fee">
+                Prijavnina: <strong>30&nbsp;€</strong> na ekipo
+            </p>
+        </div>
+    </header>
+
+    <!-- Registration form -->
+    <main class="registration">
+        <div class="card" id="form-container">
+            <form id="registration-form" action="https://formspree.io/f/mblynnep" method="POST">
+                <div class="field">
                     <label for="team-name">Ime ekipe</label>
-                    <input id="team-name" type="text" name="Ime ekipe" required>
+                    <input id="team-name" type="text" name="Ime ekipe" placeholder="Vnesite ime vaše ekipe" required>
+                </div>
 
+                <div class="field">
                     <label for="captain-name">Ime in priimek kapetana</label>
-                    <input id="captain-name" type="text" name="Ime in priimek kapetana" required>
+                    <input id="captain-name" type="text" name="Ime in priimek kapetana" placeholder="Vnesite ime in priimek kapetana" required>
+                </div>
 
+                <div class="field">
                     <label for="email">Email kapetana</label>
-                    <input id="email" type="email" name="Email kapetana" required>
+                    <input id="email" type="email" name="Email kapetana" placeholder="kapetan@example.com" required>
+                </div>
 
+                <div class="field">
                     <label for="phone">Telefon kapetana</label>
-                    <input id="phone" type="tel" name="Telefon kapetana">
+                    <input id="phone" type="tel" name="Telefon kapetana" placeholder="npr. 031 123 456">
+                </div>
 
-                    <label>
-                        <input type="checkbox" name="Strinjanje s pravili" value="soglašam" required>
-                        Strinjam se s pravili turnirja.
-                    </label>
-                    
-                    <button type="submit">Prijavi ekipo</button>
-                </form>
-            </div>
-            <div id="success-message" class="hidden">
-                <h2>Hvala za prijavo! ✅</h2>
-                <p>Vaša prijava je bila uspešno oddana.</p>
-                <p>V kratkem boste na vnešeni e-mail naslov prejeli vse potrebne informacije in navodila za plačilo prijavnine, kjer boste lahko poravnali stroške.</p>
-                <p>Se vidimo na igrišču!</p>
-            </div>
-        </main>
-    </div>
+                <div class="field checkbox-field">
+                    <input type="checkbox" id="rules" name="Strinjanje s pravili" value="soglašam" required>
+                    <label for="rules">Strinjam se s pravili turnirja</label>
+                </div>
+
+                <button type="submit" class="cta-btn">Prijavi ekipo</button>
+            </form>
+        </div>
+
+        <!-- Success message -->
+        <div id="success-message" class="card hidden">
+            <h2>Hvala za prijavo! ✅</h2>
+            <p>Vaša prijava je bila uspešno oddana.</p>
+            <p>V kratkem boste na vnešeni e-mail naslov prejeli vse potrebne informacije in navodila za plačilo prijavnine, kjer boste lahko poravnali stroške.</p>
+            <p>Se vidimo na igrišču!</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Planet Circle — Vse pravice pridržane.</p>
+    </footer>
+
+    <!-- Preserve your existing submission script -->
     <script>
         var form = document.getElementById('registration-form');
         var formContainer = document.getElementById('form-container');
