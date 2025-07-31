@@ -1,136 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* Import a modern sans‑serif font (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-    color: #4f4f4f;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: #023047;
+  /* Soft gradient reminiscent of summer skies and grass */
+  background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3b6 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    max-width: 600px; /* Adjusted for a cleaner form layout */
-    width: 100%;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+/* Hero section */
+.hero {
+  padding: 4rem 1rem 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-header h1 {
-    color: #00796b;
-    margin-bottom: 10px;
-    font-size: 2.5em; /* Slightly adjusted */
-    font-weight: 700;
+.hero__content h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #006d77;
 }
 
-header p {
-    color: #666;
-    margin-bottom: 30px; /* Adjusted spacing */
+.hero__subtitle {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
-/* --- New Form Styles --- */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Adds space between form elements */
-    text-align: left;
+.hero__fee {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007f5f;
 }
 
-form label {
-    font-weight: 600;
-    color: #004d40;
-    margin-bottom: -10px; /* Pulls label closer to input */
+/* Registration card */
+.registration {
+  flex: 1;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"] {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 550px;
 }
 
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="tel"]:focus {
-    border-color: #00796b;
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 121, 107, 0.2);
-}
-
-form label[for="rules"] {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: normal; /* Regular weight for this label */
-    color: #4f4f4f;
-}
-
-form input[type="checkbox"] {
-    width: auto;
-    accent-color: #00796b; /* Styles the checkbox color */
-}
-
-button[type="submit"] {
-    background: linear-gradient(120deg, #00796b, #004d40);
-    color: white;
-    padding: 18px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2em; /* Adjusted font size */
-    font-weight: 600;
-    width: 100%;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 121, 107, 0.3);
-    margin-top: 10px; /* Add some space above the button */
-}
-
-button[type="submit"]:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 121, 107, 0.4);
-}
-
-/* --- Success Message & Helper Class --- */
 .hidden {
-    display: none;
+  display: none;
 }
 
-#success-message {
-    text-align: center;
-    padding: 20px;
+.field {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-#success-message h2 {
-    color: #00796b;
-    font-size: 2em;
-    margin-bottom: 15px;
+.field label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-#success-message p {
-    color: #4f4f4f;
-    font-size: 1.1em;
-    line-height: 1.6;
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"] {
+  padding: 0.8rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
-/* Responsive Design */
+.field input:focus {
+  border-color: #2ec4b6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(46, 196, 182, 0.2);
+}
+
+/* Checkbox */
+.checkbox-field {
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.checkbox-field input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  accent-color: #2ec4b6;
+}
+
+.checkbox-field label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Call‑to‑action button */
+.cta-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #2ec4b6 0%, #0095a8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(90deg, #0095a8 0%, #2ec4b6 100%);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #004a60;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive adjustments */
 @media (max-width: 600px) {
-    .container {
-        padding: 25px;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
+  .hero__content h1 {
+    font-size: 1.8rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
 }
