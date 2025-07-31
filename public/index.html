@@ -7,20 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Hero section summarising the event -->
+    <!-- Hero section with decorative elements and event summary -->
     <header class="hero">
+        <!-- decorative circles overlay for cosmic vibe -->
+        <div class="decorative-bg"></div>
         <div class="hero__content">
             <h1>Prijava na Odbojkarski Turnir</h1>
             <p class="hero__subtitle">
-                Turnir poteka 15.&nbsp;avgusta&nbsp;2025 v Športnem parku Budanje na igrišču za odbojko na mivki.
+                Turnir poteka 15.&nbsp;avgusta&nbsp;2025 v Športnem parku Budanje na igrišču
+                za odbojko na mivki.
             </p>
             <p class="hero__fee">
                 Prijavnina: <strong>30&nbsp;€</strong> na ekipo
             </p>
+            <!-- Countdown timer to the event -->
+            <div id="countdown" class="countdown"></div>
+            <!-- Instagram handle -->
+            <p class="hero__instagram">
+                Sledi nam na Instagramu: <a href="https://www.instagram.com/planetcircle__/" target="_blank" rel="noopener">@planetcircle__</a>
+            </p>
         </div>
     </header>
 
-    <!-- Registration form -->
     <main class="registration">
         <div class="card" id="form-container">
             <form id="registration-form" action="https://formspree.io/f/mblynnep" method="POST">
@@ -28,27 +36,22 @@
                     <label for="team-name">Ime ekipe</label>
                     <input id="team-name" type="text" name="Ime ekipe" placeholder="Vnesite ime vaše ekipe" required>
                 </div>
-
                 <div class="field">
                     <label for="captain-name">Ime in priimek kapetana</label>
                     <input id="captain-name" type="text" name="Ime in priimek kapetana" placeholder="Vnesite ime in priimek kapetana" required>
                 </div>
-
                 <div class="field">
                     <label for="email">Email kapetana</label>
                     <input id="email" type="email" name="Email kapetana" placeholder="kapetan@example.com" required>
                 </div>
-
                 <div class="field">
                     <label for="phone">Telefon kapetana</label>
                     <input id="phone" type="tel" name="Telefon kapetana" placeholder="npr. 031 123 456">
                 </div>
-
                 <div class="field checkbox-field">
                     <input type="checkbox" id="rules" name="Strinjanje s pravili" value="soglašam" required>
                     <label for="rules">Strinjam se s pravili turnirja</label>
                 </div>
-
                 <button type="submit" class="cta-btn">Prijavi ekipo</button>
             </form>
         </div>
@@ -66,8 +69,28 @@
         <p>© 2025 Planet Circle — Vse pravice pridržane.</p>
     </footer>
 
-    <!-- Preserve your existing submission script -->
+    <!-- Countdown timer script -->
     <script>
+        (function () {
+          const countdownEl = document.getElementById('countdown');
+          const eventDate = new Date('2025-08-15T00:00:00+02:00');
+          function updateCountdown() {
+            const now = new Date();
+            const diff = eventDate - now;
+            if (diff <= 0) {
+              countdownEl.textContent = 'Dogodek je v teku!';
+              return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            countdownEl.textContent = `${days} dni ${hours} h ${minutes} min`;
+          }
+          updateCountdown();
+          setInterval(updateCountdown, 60000);
+        })();
+
+        // preserve your existing submission logic
         var form = document.getElementById('registration-form');
         var formContainer = document.getElementById('form-container');
         var successMessage = document.getElementById('success-message');
